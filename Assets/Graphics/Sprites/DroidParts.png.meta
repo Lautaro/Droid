@@ -1,0 +1,205 @@
+fileFormatVersion: 2
+guid: 8d5e0c53e872a6c4caa98e48abc74def
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: DroidParts_0
+    21300002: DroidParts_1
+    21300004: DroidParts_2
+    21300006: DroidParts_3
+    21300008: Droid MachineGun
+    21300010: DroidParts_5
+    21300012: DroidParts_6
+    21300014: DroidParts_7
+    21300016: DroidParts_8
+    21300018: DroidParts_9
+    21300020: DroidParts_10
+    21300022: DroidParts_11
+    21300024: DroidParts_12
+    21300026: DroidParts_13
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: 1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 10
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: iPhone
+    maxTextureSize: 1024
+    textureFormat: -2
+    compressionQuality: 50
+  spriteSheet:
+    sprites:
+    - name: DroidParts_0
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 462
+        width: 86
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DroidParts_1
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 558
+        width: 32
+        height: 43
+      alignment: 9
+      pivot: {x: .449999988, y: .600000024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DroidParts_2
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 552
+        width: 43
+        height: 55
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DroidParts_3
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 546
+        width: 46
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Droid MachineGun
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 565
+        width: 16
+        height: 42
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DroidParts_5
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 459
+        width: 50
+        height: 66
+      alignment: 9
+      pivot: {x: .430000007, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DroidParts_6
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 360
+        width: 86
+        height: 70
+      alignment: 9
+      pivot: {x: .449999988, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DroidParts_7
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 360
+        width: 86
+        height: 70
+      alignment: 9
+      pivot: {x: .449999988, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DroidParts_8
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 359
+        width: 86
+        height: 70
+      alignment: 9
+      pivot: {x: .449999988, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DroidParts_9
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 359
+        width: 86
+        height: 71
+      alignment: 9
+      pivot: {x: .449999988, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DroidParts_10
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 170
+        width: 97
+        height: 178
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DroidParts_11
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 172
+        width: 98
+        height: 178
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DroidParts_12
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 171
+        width: 101
+        height: 178
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: DroidParts_13
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 171
+        width: 95
+        height: 178
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

@@ -1,0 +1,148 @@
+/*
+Theme Name: Custom Community 
+Theme URI: http://themekraft.com/custom-community/
+Description: Create your individual website within minutes. Custom Community is a WordPress and BuddyPress theme framework that enables you to build your site with all the features you love. Easy to use jQuery slideshow. List posts under your pages in magazine layouts. Use powerful theme settings to customize every part of the theme. 20 widget areas, 5 special widgets and 2 custom WP 3.0 header menus. 3 predefined colour schemes (white, grey, black) with clean and simple browsersafe css design to start from. Support forum at http://themekraft.com/forums. 
+Version: 1.8.9.1
+Author: Themekraft
+Author URI: http://themekraft.com/
+Tags: buddypress, translation-ready, dark, light, white, left-sidebar, right-sidebar, two-columns, three-columns, fixed-width, flexible-width, custom-header, custom-menu, custom-colors, custom-background, theme-options
+License: GNU General Public License v2.0 / License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+
+/* Reset browser defaults */
+@import url(http://fonts.googleapis.com/css?family=Simonetta:400,400italic|Pontano+Sans);
+@import url( _inc/css/reset.css );
+
+.aligncenter { 
+display: block;
+margin-left: auto;
+margin-right: auto; 
+}
+
+.alignleft {
+float: left;
+margin-right: 15px;
+}
+
+.alignright {
+float: right;
+margin-left: 15px;
+}
+
+div.post .wp-caption {
+text-align: center;
+background-color: #f3f3f3;
+padding-top: 4px;
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+border-radius: 3px;
+margin-bottom:12px;
+}
+
+div.post dd.wp-caption p.wp-caption-text, div.post .wp-caption p.wp-caption-text {
+font-size: 0.9em;
+line-height: 17px;
+padding: 0 4px 5px 0;
+margin: 0;
+}
+
+/* LAUTAROS CLASSES */
+
+/*
+COLORS:
+DARK BLUE: #405D80
+BLUE:#2A7CAC
+CYAN:#7AAAB6
+GRAY:#C4C3BF
+CINNAMON:#c47468
+PROWN: #644D55
+
+*/
+
+
+
+/* Side bar and widgets */
+
+.right-sidebar-padder{
+border-left: 1px solid #2A7CAC;
+}
+
+
+/* Typography */
+
+.widgettitle
+{
+font-family: 'Simonetta' !important;
+background-color: #2A7CAC !important;
+}
+
+h3.widgettitle
+{
+color: white !important;
+font-size: 20px !important;
+text-shadow: 1px 1px 1px #000;
+}
+
+ .widget a
+{
+color: #2A7CAC ;
+}
+
+.menu a, h1, h2, h1 a, h2 a
+{
+font-size: 18px !important;
+font-family: 'Simonetta' !important;
+text-shadow: 1px 1px 1px #000;
+color: #C49488 !important;
+}
+
+.menu a
+{
+color: white !important;
+}
+
+h1, h2, h1 a, h2 a
+{
+font-size: 30px !important;
+color: #405D80 !important;
+text-shadow: 0px 0px 0px #000;
+font-weight: bold;
+}
+body, p, a
+{
+font-family: 'Pontano Sans', sans-serif !important;
+font-size: 16px !important;
+}
+
+
+/* Menu*/
+
+#access
+{
+background-color: #2A7CAC !important;
+}
+
+
+/*BG */
+
+#outerrim
+{
+
+
+}
+
+body
+{
+
+background-color: #82BBED !important;
+background-image: -webkit-gradient(
+	linear,
+	right bottom,
+	right top,
+	color-stop(0.60, #405D80 ),
+	color-stop(0.90, #7AAAB6 ));
+}
+
+
+/* LAUTAROS CLASSES END */

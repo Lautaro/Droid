@@ -1,0 +1,31 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Zone\Inventory\PlayerHand.cs">
+    <Files>
+      <File FileName="Assets\Scripts\Zone\Inventory\InventorySlot.cs" Line="17" Column="26" />
+      <File FileName="Assets\Scripts\Zone\DroidBody.cs" Line="10" Column="1" />
+      <File FileName="Assets\Scripts\Zone\Inventory\PlayerHand.cs" Line="41" Column="5" />
+      <File FileName="Assets\Scripts\Zone\Inventory\Inventory.cs" Line="30" Column="2" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Assembly-CSharp" expanded="True">
+            <Node name="Scripts" expanded="True">
+              <Node name="Items" expanded="True" />
+              <Node name="Zone" expanded="True">
+                <Node name="Inventory" expanded="True">
+                  <Node name="PlayerHand.cs" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

@@ -1,0 +1,95 @@
+fileFormatVersion: 2
+guid: d3a902972145e6e4e827e5147a80133e
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Brain
+    21300002: LargeEdge
+    21300004: Eye
+    21300006: SmallEdge
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 10
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: iPhone
+    maxTextureSize: 1024
+    textureFormat: -2
+    compressionQuality: 50
+  spriteSheet:
+    sprites:
+    - name: Brain
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 652
+        width: 132
+        height: 126
+      alignment: 9
+      pivot: {x: .469999999, y: .449999988}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: LargeEdge
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 615
+        width: 225
+        height: 181
+      alignment: 9
+      pivot: {x: .377949476, y: .447682768}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Eye
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 678
+        width: 114
+        height: 73
+      alignment: 9
+      pivot: {x: .425241441, y: .344338626}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SmallEdge
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 633
+        width: 120
+        height: 145
+      alignment: 9
+      pivot: {x: .618367791, y: .454285502}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
