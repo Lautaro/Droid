@@ -33,7 +33,7 @@ public class ProjectileLauncher : WeaponsBase
 		
 		var targetDirection = ((Vector2)target.transform.position - (Vector2)transform.position).normalized;
 		Debug.DrawRay (projectile.transform.position, targetDirection * 5, Color.white, 5f);
-		projectile.rigidbody2D.AddForce (targetDirection * Random.Range (1000, 10000));
+		projectile.GetComponent<Rigidbody2D>().AddForce (targetDirection * Random.Range (1000, 10000));
 	}
 
 }

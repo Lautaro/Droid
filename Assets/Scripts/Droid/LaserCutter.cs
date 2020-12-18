@@ -23,17 +23,6 @@ public class LaserCutter : MonoBehaviour
             
 		}
 
-
-		public void BeamOn ()
-		{
-            return;
-				print ("BEAM ON ");
-				beam.Play ();
-                laserAudioSource.Play();
-                print("playing: " + laserAudioSource.clip.name);
-				beamIsOn = true;
-		}
-
 		public void BeamOff ()
 		{
 				print ("BEAM OFF ");
@@ -48,8 +37,7 @@ public class LaserCutter : MonoBehaviour
 		}
 
 		IEnumerator laserTimer_cr (float time)
-		{
-				BeamOn ();
+		{		
 				float timer = 0;
 				while (time > timer) {
 						timer ++;

@@ -46,7 +46,7 @@ public class DroidLazerGun : WeaponsBase
 		var damagePerShot = Damage / Damage;
 		line.SetPosition (1, new Vector3 (0.2f, beamLength, 0f));
         laserAudioSource.Play();
-        laserAudioSource.volume = 0.6f;
+        laserAudioSource.volume = 0.4f;
         laserAudioSource.loop = true;
 
 		for (int i = 0; i < ShotsPerBurst; i++) {

@@ -332,14 +332,14 @@ public class UIWidgetInspector : UIRectEditor
 
 		Vector3 myPos = (myCorners[i0] + myCorners[i1]) * 0.5f;
 		Vector3[] sides = null;
-
+		var cam = anchor.target.GetComponent<Camera>();
 		if (anchor.rect != null)
 		{
 			sides = anchor.rect.worldCorners;
 		}
-		else if (anchor.target.camera != null)
+		else if (cam != null)
 		{
-			sides = anchor.target.camera.GetWorldCorners();
+			sides = cam.GetWorldCorners();
 		}
 
 		Vector3 theirPos;

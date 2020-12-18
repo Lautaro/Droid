@@ -29,7 +29,9 @@ public class TakeDamage : AbilityBase
     void Awake()
     {
         takeDamageAudioSource = gameObject.AddComponent<AudioSource>();
-    }
+		takeDamageAudioSource.volume = 0.2f;
+
+	}
 
 
 	public void LazerHit (float damage)
@@ -47,8 +49,9 @@ public class TakeDamage : AbilityBase
 		FxManager.PlaceFx (FxName.MachineGunHit, transform);
 		Life -= 5;
 		Vector2 direction = ((Vector2)transform.position - hitOrigin).normalized;
-		rigidbody2D.AddForce (direction * 400);
+		GetComponent<Rigidbody2D>().AddForce (direction * 400);
 		SendMessage ("DamageTaken", SendMessageOptions.DontRequireReceiver);
+		
         takeDamageAudioSource.PlayOneShot(GettingHit);
 
 	}
@@ -57,7 +60,7 @@ public class TakeDamage : AbilityBase
 	{
 		Life -= (int)damage;
 		Vector2 direction = ((Vector2)transform.position - hitOrigin).normalized;
-		rigidbody2D.AddForce (direction * forceMultiplier);
+		GetComponent<Rigidbody2D>().AddForce (direction * forceMultiplier);
 		SendMessage ("DamageTaken", SendMessageOptions.DontRequireReceiver);
         takeDamageAudioSource.PlayOneShot(GettingHit);
 	}

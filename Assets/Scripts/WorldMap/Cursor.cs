@@ -37,7 +37,7 @@ public class Cursor : MonoBehaviour
 
 				
 				var duration = 0.1f;
-				var startColor = renderer.material.color;
+				var startColor = GetComponent<Renderer>().material.color;
 				var targetColor = new Color (0f, 215f, 255f, 255f);
 				
 				var startTime = Time.time;
@@ -45,7 +45,7 @@ public class Cursor : MonoBehaviour
 
 				while (progress < 1) {
 				
-						renderer.material.color = Color.Lerp (startColor, targetColor, progress);
+						GetComponent<Renderer>().material.color = Color.Lerp (startColor, targetColor, progress);
 						progress = (Time.time - startTime) / duration;
 						
 						yield return  null;
@@ -55,12 +55,12 @@ public class Cursor : MonoBehaviour
 				startTime = Time.time;
 				while (progress < 1) {
 				
-						renderer.material.color = Color.Lerp (targetColor, startColor, progress);
+						GetComponent<Renderer>().material.color = Color.Lerp (targetColor, startColor, progress);
 						progress = (Time.time - startTime) / duration;						
 						yield return  null;
 				}
 
-				renderer.material.color = startColor;
+				GetComponent<Renderer>().material.color = startColor;
 				print ("done lerping down");
 				coordinateSelected = false;
 		}

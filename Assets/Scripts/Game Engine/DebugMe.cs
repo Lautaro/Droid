@@ -13,8 +13,8 @@ public class DebugMe : MonoBehaviour
 
 		void Awake ()
 		{
-				if (renderer) {
-						renderColor = renderer.material.color;
+				if (GetComponent<Renderer>()) {
+						renderColor = GetComponent<Renderer>().material.color;
 				}
 		}
 	
@@ -42,9 +42,9 @@ public class DebugMe : MonoBehaviour
 		{				
 				if (doMouseEvents) {
 						PrintToLog ("Mouse Enter: " + name);
-						if (renderer) {
+						if (GetComponent<Renderer>()) {
 								var color = new Color (1f, 0.3f, 0.3f, 1f);
-								renderer.material.color = color;
+								GetComponent<Renderer>().material.color = color;
 						}
 				}
 				
@@ -53,8 +53,8 @@ public class DebugMe : MonoBehaviour
 		{
 				if (doMouseEvents) {
 						PrintToLog ("Mouse Exit: " + name);
-						if (renderer) {
-								renderer.material.color = renderColor;
+						if (GetComponent<Renderer>()) {
+								GetComponent<Renderer>().material.color = renderColor;
 						}
 				}
 		}
@@ -63,15 +63,15 @@ public class DebugMe : MonoBehaviour
 		{
 				if (doMouseEvents) {
 						if (isOver) {
-								if (renderer) {
+								if (GetComponent<Renderer>()) {
 										PrintToLog ("NGUI Mouse HOVER: " + name);
 										var color = new Color (0.3f, 0.3f, 1f, 1f);
-										renderer.material.color = color;
+										GetComponent<Renderer>().material.color = color;
 								}
 						} else {
-								if (renderer) {
+								if (GetComponent<Renderer>()) {
 										PrintToLog ("NGUI Mouse OUT: " + name);
-										renderer.material.color = renderColor;
+										GetComponent<Renderer>().material.color = renderColor;
 								}
 						}
 				}

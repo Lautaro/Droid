@@ -25,8 +25,8 @@ public class PickUp : MonoBehaviour
 		{
 				if (other.name == "Player") {			
 				
-						audio.clip = PickedUp;
-						audio.Play ();
+						GetComponent<AudioSource>().clip = PickedUp;
+						GetComponent<AudioSource>().Play ();
 						var effect = transform.Find ("Effect").GetComponent<ParticleSystem> ();
 						var meshRenderer = GetComponent<MeshRenderer> ();
 						//	effect.Emit (500);

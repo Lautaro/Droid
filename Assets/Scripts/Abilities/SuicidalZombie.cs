@@ -37,8 +37,8 @@ public class SuicidalZombie : AbilityBase
 		
 								Debug.DrawLine (transform.position, direction * 3, Color.cyan, 0.01f);
 
-								rigidbody2D.AddForce (direction.normalized * Speed * 100);
-								rigidbody2D.AddTorque (Random.Range (-200f, 200f));
+								GetComponent<Rigidbody2D>().AddForce (direction.normalized * Speed * 100);
+								GetComponent<Rigidbody2D>().AddTorque (Random.Range (-200f, 200f));
 								timer = Time.time + 1f;
 								target = ZoneScene.player.transform;
 						}	

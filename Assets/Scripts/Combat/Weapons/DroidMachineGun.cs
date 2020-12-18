@@ -87,9 +87,8 @@ public class DroidMachineGun : WeaponsBase
             if (firstShoot)
             {
                 machineGunAudio.clip = MachineGunFire;
+                machineGunAudio.volume = 0.5f;
                 machineGunAudio.Play();
-
-                machineGunAudio.volume = 0.6f;
                 machineGunAudio.loop = true;
                 firstShoot = false;
 

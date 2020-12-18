@@ -217,13 +217,15 @@ static public class NGUIMenu
 		return t;
 	}
 
+	 static bool ortographic =  UICamera.list[0].GetComponent<Camera>().orthographic;
+
 	[MenuItem("NGUI/Create/2D UI", false, 6)]
 	[MenuItem("Assets/NGUI/Create 2D UI", false, 1)]
 	static void Create2D () { UICreateNewUIWizard.CreateNewUI(UICreateNewUIWizard.CameraType.Simple2D); }
 
 	[MenuItem("NGUI/Create/2D UI", true)]
 	[MenuItem("Assets/NGUI/Create 2D UI", true, 1)]
-	static bool Create2Da () { return UIRoot.list.Count == 0 || UICamera.list.size == 0 || !UICamera.list[0].camera.isOrthoGraphic; }
+	static bool Create2Da () { return UIRoot.list.Count == 0 || UICamera.list.size == 0 || !ortographic; }
 
 	[MenuItem("NGUI/Create/3D UI", false, 6)]
 	[MenuItem("Assets/NGUI/Create 3D UI", false, 1)]
@@ -231,7 +233,7 @@ static public class NGUIMenu
 
 	[MenuItem("NGUI/Create/3D UI", true)]
 	[MenuItem("Assets/NGUI/Create 3D UI", true, 1)]
-	static bool Create3Da () { return UIRoot.list.Count == 0 || UICamera.list.size == 0 || UICamera.list[0].camera.isOrthoGraphic; }
+	static bool Create3Da () { return UIRoot.list.Count == 0 || UICamera.list.size == 0 || ortographic; }
 
 #endregion
 #region Attach

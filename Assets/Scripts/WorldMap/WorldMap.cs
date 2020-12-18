@@ -43,7 +43,7 @@ public class WorldMap : MonoBehaviour
 				RaycastHit hitInfo; 
 				var cursorControl = cursor.GetComponent<Cursor> ();
 		
-				if (collider.Raycast (ray, out hitInfo, Mathf.Infinity)) {
+				if (GetComponent<Collider>().Raycast (ray, out hitInfo, Mathf.Infinity)) {
 						var point = hitInfo.point;
 						var cursorPos = new Vector2 (Mathf.Floor (point.x), Mathf.Floor (point.y) + 1);
 			

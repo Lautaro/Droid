@@ -21,7 +21,7 @@ public class SlimeProjectile : ProjectileBase
 				if (coll.gameObject.name == "Player") {
 						var player = coll.gameObject.GetComponent<TakeDamage> ();
 						player.ProjectileHit (transform.position, 50f, 1000);
-						collider2D.enabled = false;
+						GetComponent<Collider2D>().enabled = false;
 						Die ();
 				
 				}

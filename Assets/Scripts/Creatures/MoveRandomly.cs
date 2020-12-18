@@ -64,7 +64,7 @@ public class MoveRandomly : AbilityBase
 						pos = transform.position;			
 						direction = ((Vector2)targetPosition - (Vector2)pos).normalized;						
 						distance = Vector3.Distance (pos, targetPosition);
-						rigidbody2D.AddForce (direction.normalized * speed);
+						GetComponent<Rigidbody2D>().AddForce (direction.normalized * speed);
 						
 						yield return null;			
 				}

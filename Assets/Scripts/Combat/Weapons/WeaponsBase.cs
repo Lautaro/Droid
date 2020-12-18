@@ -32,12 +32,12 @@ public class WeaponsBase : MonoBehaviour
 
 	IEnumerator PullTrigger_cr ()
 	{
-		//	//print ("Triggered Pulled");
+		//	//print ("Trigger Pulled");
 		if (state == WeaponState.idle) {				
 			if (Ammunition < 1) {
-				if (ClickSfx && audio) {
-					audio.clip = ClickSfx;
-					audio.Play ();
+				if (ClickSfx && GetComponent<AudioSource>()) {
+					GetComponent<AudioSource>().clip = ClickSfx;
+					GetComponent<AudioSource>().Play ();
 					state = WeaponState.noAmmo;
 				}
 			} else {
@@ -65,7 +65,7 @@ public class WeaponsBase : MonoBehaviour
 	/// </summary>
 	protected virtual void OnWeaponFired ()
 	{
-		print ("yeeeah.... this OnBulletFired base method probably should not be called. Override it.");
+		
 	}
 
 	protected	IEnumerator Reload_cr ()

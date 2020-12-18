@@ -23,7 +23,7 @@ public class DroidHand : MonoBehaviour
 		{
 				if (hasItem) {
 					
-						var slotPos = ZoneScene.guiCamera.camera.ScreenToWorldPoint (Input.mousePosition);
+						var slotPos = ZoneScene.guiCamera.GetComponent<Camera>().ScreenToWorldPoint (Input.mousePosition);
 					
 						slotPos.x += 0.2f;
 						slotPos.y += 0.2f;

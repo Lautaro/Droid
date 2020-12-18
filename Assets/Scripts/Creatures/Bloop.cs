@@ -22,7 +22,7 @@ public class Bloop : CreatureBase
 
 	IEnumerator Die_cr ()
 	{
-		var deathEffect = transform.Find ("DeathEffect").particleSystem;//GetComponent<ParticleSystem> ();
+		var deathEffect = transform.Find ("DeathEffect").GetComponent<ParticleSystem>();//GetComponent<ParticleSystem> ();
 		deathEffect.Play (true);
 		
 		var brain = transform.Find ("Body").transform.Find ("Brain").gameObject;
@@ -36,7 +36,7 @@ public class Bloop : CreatureBase
 						
 			ability.enabled = false;				
 		}
-		var material = brain.renderer.material;
+		var material = brain.GetComponent<Renderer>().material;
 		var color = material.color;
 
 		var duration = 3f;

@@ -95,11 +95,11 @@ public class DroidMovement : MonoBehaviour
 								droid.transform.rotation = targetRotation;
 						}
 						
-						if (!audio.isPlaying) {
+						if (!GetComponent<AudioSource>().isPlaying) {
 								
-								audio.clip = DroidMoving;
-								audio.loop = true;
-								audio.Play ();
+								GetComponent<AudioSource>().clip = DroidMoving;
+								GetComponent<AudioSource>().loop = true;
+								GetComponent<AudioSource>().Play ();
 						}		
 				}
 		}
@@ -133,7 +133,7 @@ public class DroidMovement : MonoBehaviour
 						if (brake) {
 								if (IsTravelling ()) {
 										//	print (string.Format ("BRAKE Acceleration {0}  -  Velocity {1}", -acceleration, player.rigidbody2D.velocity));
-										droid.rigidbody2D.AddForce (droid.transform.up * -acceleration);
+										droid.GetComponent<Rigidbody2D>().AddForce (droid.transform.up * -acceleration);
 									
 								} else {
 										travelToTarget = false;			
@@ -142,7 +142,7 @@ public class DroidMovement : MonoBehaviour
 								}
 						} else {
 								//print (string.Format ("Acceleration {0}  -  Velocity {1} - Distance {2}", acceleration, player.rigidbody2D.velocity, distanceToTarget));
-								droid.rigidbody2D.AddForce (droid.transform.up * acceleration);	
+								droid.GetComponent<Rigidbody2D>().AddForce (droid.transform.up * acceleration);	
 																
 						}
 
@@ -168,10 +168,10 @@ public class DroidMovement : MonoBehaviour
 						animator.speed = 1;
 				}		
 
-				if (!rotateToTarget && !travelToTarget && !IsTravelling () && audio.isPlaying) {			
+				if (!rotateToTarget && !travelToTarget && !IsTravelling () && GetComponent<AudioSource>().isPlaying) {			
 						//SFX STOP
-						audio.Stop ();
-						audio.PlayOneShot (DroidHalt);
+						GetComponent<AudioSource>().Stop ();
+						GetComponent<AudioSource>().PlayOneShot (DroidHalt);
 					
 				}
 				
@@ -185,10 +185,10 @@ public class DroidMovement : MonoBehaviour
 				var dustStrength = acceleration * 10;
 
 				dustEffect.Play (true);
-				dustEffect.emissionRate = droid.rigidbody2D.velocity.magnitude * 8; //Adjust dust particles acording to speed
-				pebbleEffects.emissionRate = droid.rigidbody2D.velocity.magnitude * 5;
+				dustEffect.emissionRate = droid.GetComponent<Rigidbody2D>().velocity.magnitude * 8; //Adjust dust particles acording to speed
+				pebbleEffects.emissionRate = droid.GetComponent<Rigidbody2D>().velocity.magnitude * 5;
 				//	pebbleEffects.startSpeed = player.rigidbody2D.velocity.magnitude;
-				if (droid.rigidbody2D.velocity.magnitude < 1) {
+				if (droid.GetComponent<Rigidbody2D>().velocity.magnitude < 1) {
 						dustEffect.Play (true);
 				} 				
 		}
@@ -200,8 +200,8 @@ public class DroidMovement : MonoBehaviour
 
 		bool IsTravelling ()
 		{
-				var xSpeed = Mathf.Abs (droid.rigidbody2D.velocity.x);
-				var ySpeed = Mathf.Abs (droid.rigidbody2D.velocity.y);
+				var xSpeed = Mathf.Abs (droid.GetComponent<Rigidbody2D>().velocity.x);
+				var ySpeed = Mathf.Abs (droid.GetComponent<Rigidbody2D>().velocity.y);
 				var speedLimig = 3f;
 				if (ySpeed > speedLimig && xSpeed > speedLimig) {
 									

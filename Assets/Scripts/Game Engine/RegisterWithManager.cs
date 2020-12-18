@@ -7,7 +7,7 @@ public class RegisterWithManager : MonoBehaviour
 		// Use this for initialization
 		void Awake ()
 		{
-				ZoneScene.mainCamera = camera;
+				ZoneScene.mainCamera = GetComponent<Camera>();
 		}
 	
 		// Update is called once per frame

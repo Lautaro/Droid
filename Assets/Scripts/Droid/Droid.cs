@@ -37,8 +37,8 @@ public class Droid : MonoBehaviour
 		LazerGun = transform.Find ("Body").Find ("Head").GetComponentInChildren<DroidLazerGun> ();
 		var effects = transform.Find ("Effects");
 
-		electricalEffect = effects.transform.Find ("fx_ElectricalExplosion").particleSystem;
-		fireEffect = effects.transform.Find ("FireExplosionEffect").particleSystem;
+		electricalEffect = effects.transform.Find ("fx_ElectricalExplosion").GetComponent<ParticleSystem>();
+		fireEffect = effects.transform.Find ("FireExplosionEffect").GetComponent<ParticleSystem>();
 	}
 
 	void Start ()
@@ -79,7 +79,9 @@ public class Droid : MonoBehaviour
 		electricalEffect.Play ();
 		fireEffect.Play ();
         DroidAudioSource.clip = DroidHit;
-        DroidAudioSource.Play();
+		DroidAudioSource.volume = 0.1f;
+
+		DroidAudioSource.Play();
 		gui.SetHealth (health.Life, health.MaxLife);
 
 	}

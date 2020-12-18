@@ -3,7 +3,7 @@ using System.Collections;
 
 public class SlimeStalker : CreatureBase
 {
-    public AudioClip DeathSfx;
+    public AudioClip SlimeHitSfx;
     AudioSource SlimeAudioSource;
 
 
@@ -11,7 +11,9 @@ public class SlimeStalker : CreatureBase
 	void Start ()
 	{
         SlimeAudioSource = gameObject.AddComponent<AudioSource>();
-        SlimeAudioSource.clip = DeathSfx;
+		SlimeAudioSource.volume = 0.1f;
+
+		SlimeAudioSource.clip = SlimeHitSfx;
 	}
 	
 	// Update is called once per frame
@@ -26,9 +28,12 @@ public class SlimeStalker : CreatureBase
 	
 		GetComponentInChildren<Renderer> ().enabled = false;
 		State = CreatureState.Dead;
-		rigidbody2D.isKinematic = true;
-		collider2D.enabled = false;
+		GetComponent<Rigidbody2D>().isKinematic = true;
+		GetComponent<Collider2D>().enabled = false;
 		Destroy (gameObject, 3f);
-        SlimeAudioSource.Play();
+		SlimeAudioSource.clip = SlimeHitSfx;
+		SlimeAudioSource.volume = 0.5f;
+
+		SlimeAudioSource.Play();
 	}
 }

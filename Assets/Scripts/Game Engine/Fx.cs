@@ -29,7 +29,7 @@ public class Fx : MonoBase
 		base.Awake ();
 		name = name.Replace ("fx_", "");
 		effect = GetComponent<ParticleSystem> ();
-		effect.renderer.sortingLayerName = "ParticleLayer";
+		effect.GetComponent<Renderer>().sortingLayerName = "ParticleLayer";
 		if (!effect) {
 			throw new UnityException ("Fx cannot find PraticleSystem. This is weird!");
 		}

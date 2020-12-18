@@ -3,132 +3,151 @@
 
 public class DroidWheeledMovement : MonoBehaviour
 {
-	#region Properties
+    #region Properties
 
-   public bool WasMoving = false;
+    public bool WasMoving = false;
 
     public AudioClip DroidMovement;
     public AudioClip DroidMovementCoolDown;
     public AudioSource movementAudio;
 
-	/// <summary>
-	/// The target rotation angle.
-	/// </summary>
-	public int targetAngle;
+    /// <summary>
+    /// The target rotation angle.
+    /// </summary>
+    public int targetAngle;
 
-	/// <summary>
-	/// Position the autopilot wants to reach. 
-	/// </summary>
-	Vector2 autoPilotTarget;
+    /// <summary>
+    /// Position the autopilot wants to reach. 
+    /// </summary>
+    Vector2 autoPilotTarget;
 
-	/// <summary>
-	/// If player moves droid with keys
-	/// </summary>
-	public	bool manualAcceleration;
+    /// <summary>
+    /// If player moves droid with keys
+    /// </summary>
+    public bool manualAcceleration;
 
-	/// <summary>
-	/// Is droid currently rotating?
-	/// </summary>
-	bool rotating;
+    /// <summary>
+    /// Is droid currently rotating?
+    /// </summary>
+    bool rotating;
 
-	/// <summary>
-	/// Is autopilot activated?
-	/// </summary>
-	public	bool autoPilotActivated = false;
+    /// <summary>
+    /// Is autopilot activated?
+    /// </summary>
+    public bool autoPilotActivated = false;
 
-    
 
-	public int angle;
-	public bool accelerating; 
 
-	public int Angle {
-		get {
-			return (int)transform.rotation.eulerAngles.z;
-		}
-	}
+    public int angle;
+    public bool accelerating;
 
-	/// <summary>
-	/// Returns the angle to face the autopilot target
-	/// </summary>
-	/// <value>The angle to target.</value>
-	int AngleToAutoPilotTarget {
-		get {
-			if (autoPilotTarget != null) {
-				return (int)Tools.RotateZTowards (transform, autoPilotTarget).z;
-			} else {
-				return -1;
-			}		
-		}
-	}
+    public int Angle
+    {
+        get
+        {
+            return (int)transform.rotation.eulerAngles.z;
+        }
+    }
 
-	/// <summary>
-	/// Gets the angle difference between current angle and target angle.
-	/// </summary>
-	/// <value>The angle difference.</value>
-	int AngleDifference {
-		get {
-			return  Mathf.Abs (Angle - targetAngle);
-		}
-	}
+    /// <summary>
+    /// Returns the angle to face the autopilot target
+    /// </summary>
+    /// <value>The angle to target.</value>
+    int AngleToAutoPilotTarget
+    {
+        get
+        {
+            if (autoPilotTarget != null)
+            {
+                return (int)Tools.RotateZTowards(transform, autoPilotTarget).z;
+            }
+            else
+            {
+                return -1;
+            }
+        }
+    }
 
-	public float Velocity {
-		get {
-			return rigidbody2D.velocity.magnitude;
-		}
-	}
+    /// <summary>
+    /// Gets the angle difference between current angle and target angle.
+    /// </summary>
+    /// <value>The angle difference.</value>
+    int AngleDifference
+    {
+        get
+        {
+            return Mathf.Abs(Angle - targetAngle);
+        }
+    }
 
-	public string VelocityFormated {
-		get {
-			return Velocity.ToString ("0");
-		}
-	}
+    public float Velocity
+    {
+        get
+        {
+            return GetComponent<Rigidbody2D>().velocity.magnitude;
+        }
+    }
 
-	public float distanceToTarget {
-		get {
-			return	Vector2.Distance (transform.position, autoPilotTarget);
-		}
-	}
+    public string VelocityFormated
+    {
+        get
+        {
+            return Velocity.ToString("0");
+        }
+    }
 
-	public float acceleration = 10f;
-	#endregion
+    public float distanceToTarget
+    {
+        get
+        {
+            return Vector2.Distance(transform.position, autoPilotTarget);
+        }
+    }
 
-	// Use this for initialization
-	void Start ()
-	{
+    public float acceleration = 10f;
+    #endregion
+
+    // Use this for initialization
+    void Start()
+    {
         movementAudio = gameObject.AddComponent<AudioSource>();
-	
-	}
-	
-	// Update is called once per frame
-	void FixedUpdate ()
-	{
-		//DEBUG STATS
-		angle = Angle;
-		//END
+
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        //DEBUG STATS
+        angle = Angle;
+        //END
 
 
-		manualAcceleration = false;
+        manualAcceleration = false;
 
-		if (Input.anyKey) {
-			CheckForKeys ();
-		}
-
-	
-		if (autoPilotActivated) {
-		
-			AutoPilotCheck ();
-		} else {
-			ManualPilot ();
-		}
+        if (Input.anyKey)
+        {
+            CheckForKeys();
+        }
 
 
-		Accelerate ();
-        
+        if (autoPilotActivated)
+        {
+
+            AutoPilotCheck();
+        }
+        else
+        {
+            ManualPilot();
+        }
+
+
+        Accelerate();
+
         if (manualAcceleration && !WasMoving)
         {
             movementAudio.clip = DroidMovement;
             movementAudio.Play();
-            
+
             movementAudio.volume = 0.6f;
             movementAudio.loop = true;
             WasMoving = true;
@@ -142,151 +161,174 @@ public class DroidWheeledMovement : MonoBehaviour
             movementAudio.volume = 0.6f;
             movementAudio.loop = false;
             WasMoving = false;
-            
+
         }
 
-	}
+    }
 
-	void CheckForKeys ()
-	{
-		if (Input.GetKey (KeyCode.W)) {
-			manualAcceleration = true;
-			autoPilotActivated = false;
+    void OnGUI()
+    {
+        Event e = Event.current;
+        if (e.isKey)
+        {
+            Debug.Log("Detected key code: " + e.keyCode);
+        }
+    }
+
+    void CheckForKeys()
+    {
+        if (Input.GetKey(KeyCode.W))
+        {
+            manualAcceleration = true;
+            autoPilotActivated = false;
 
 
-			if (Input.GetKey (KeyCode.A)) {
-				
-				//UP LEFT
-				targetAngle = 45;
-				
-			} else { 
-				//UP
-				targetAngle = (0);
-			}			
-		} else
-			
-		if (Input.GetKey (KeyCode.A)) {
-			//LEFT
-			manualAcceleration = true;
-			autoPilotActivated = false;
-			targetAngle = (90);
-		} 
+            if (Input.GetKey(KeyCode.A))
+            {
 
-		if (Input.GetKey (KeyCode.S)) {
-			manualAcceleration = true;
-			autoPilotActivated = false;
-			//DOWN LEFT
-			targetAngle = (180);
+                //UP LEFT
+                targetAngle = 45;
 
-			if (Input.GetKey (KeyCode.A)) {
-				//DOWN LEFT
-				targetAngle = (135);
-			} else 
-			if (Input.GetKey (KeyCode.D)) {
-				//DOWN RIGHT
-				targetAngle = (225);
-			}			
-		} else
-			
-		if (Input.GetKey (KeyCode.D)) {
-			//RIGHT
-			manualAcceleration = true;
-			autoPilotActivated = false;
-			targetAngle = (270);
+            }
+            else
+            {
+                //UP
+                targetAngle = (0);
+            }
+        }
+        else
 
-		
+        if (Input.GetKey(KeyCode.A))
+        {
+            //LEFT
+            manualAcceleration = true;
+            autoPilotActivated = false;
+            targetAngle = (90);
+        }
 
-			if (Input.GetKey (KeyCode.W)) {
-				//UP LEFT
-				targetAngle = (315);
-			}
-		} 
-		RotateToTarget ();
-	}
+        if (Input.GetKey(KeyCode.S))
+        {
+            manualAcceleration = true;
+            autoPilotActivated = false;
+            //DOWN LEFT
+            targetAngle = (180);
 
-	void Accelerate ()
-	{
-		accelerating = false;
-		if (manualAcceleration || autoPilotActivated) {
-			if (AngleDifference < 45) {
+            if (Input.GetKey(KeyCode.A))
+            {
+                //DOWN LEFT
+                targetAngle = (135);
+            }
+            else
+            if (Input.GetKey(KeyCode.D))
+            {
+                //DOWN RIGHT
+                targetAngle = (225);
+            }
+        }
+        else
 
-				//DONT ACCELERATE IF ANGLE DIFFERENCE IS TO HIGH
-				rigidbody2D.AddForce (transform.up * acceleration);
-				accelerating = true;
+        if (Input.GetKey(KeyCode.D))
+        {
+            //RIGHT
+            manualAcceleration = true;
+            autoPilotActivated = false;
+            targetAngle = (270);
+
+
+
+            if (Input.GetKey(KeyCode.W))
+            {
+                //UP LEFT
+                targetAngle = (315);
+            }
+        }
+        RotateToTarget();
+    }
+
+    void Accelerate()
+    {
+        accelerating = false;
+        if (manualAcceleration || autoPilotActivated)
+        {
+            if (AngleDifference < 45)
+            {
+
+                //DONT ACCELERATE IF ANGLE DIFFERENCE IS TO HIGH
+                GetComponent<Rigidbody2D>().AddForce(transform.up * acceleration);
+                accelerating = true;
+
+            }
+        }
+
+
+
+    }
+
+    void Decelerate()
+    {
+
+    }
+
+    public void SetAutoPilot(Vector2 target)
+    {
+
+        autoPilotActivated = true;
+        autoPilotTarget = target;
+
+        targetAngle = (int)Tools.RotateZTowards(gameObject.transform, target).z;
+        //print ("AUTOPILOT ON. Target angle: " + targetAngle);
+        RotateToTarget();
+    }
+
+
+    /// <summary>
+    /// Rotates to the set target angle.
+    /// </summary>
+    void RotateToTarget()
+    {
+        if (Angle != targetAngle)
+        {
+            //print ("Current angle: " + Angle + "  newTargetAngle: " + targetAngle);
+            rotating = true;
             
-			} 
-		}
+            var args = iTween.Hash(
+                "rotation",new Vector3(0,0,targetAngle),
+                "speed",  acceleration, 
+                "easetype", iTween.EaseType.easeInOutSine, 
+                "oncomplete", "RotationComplete");
 
+            iTween.RotateTo(gameObject, args);
+        }
+    }
 
-      
-	}
+    void AutoPilotCheck()
+    {
+        // CHECK IF REALIGNMENT IS NESCESSARY
+        if (AngleToAutoPilotTarget != angle && !rotating)
+        {
+            //print ("realigning");
+            SetAutoPilot(autoPilotTarget);
+        }
 
-	void Decelerate ()
-	{
-		
-	}
+        if (autoPilotTarget != null)
+        {
 
-	public void SetAutoPilot (Vector2 target)
-	{
+            if (distanceToTarget < 8)
+            {
+                autoPilotActivated = false;
+            }
+        }
+    }
 
-		autoPilotActivated = true;
-		autoPilotTarget = target;
-	
-		targetAngle = (int)Tools.RotateZTowards (gameObject.transform, target).z;
-		//print ("AUTOPILOT ON. Target angle: " + targetAngle);
-		RotateToTarget ();
-	}
+    void ManualPilot()
+    {
 
+    }
 
-/// <summary>
-/// Rotates to the set target angle.
-/// </summary>
-	void RotateToTarget ()
-	{
+    void RotationComplete()
+    {
+        //print ("Im done rotating: " + Angle);
+        rotating = false;
 
-		if (Angle != targetAngle) {		
-			//print ("Current angle: " + Angle + "  newTargetAngle: " + targetAngle);
-			rotating = true;
-		
-			gameObject.iRotateTo ().
-			Rotation (new Vector3 (0, 0, targetAngle)).
-				Speed (acceleration).
-				EaseType (iTween.EaseType.easeOutSine).
-				OnComplete ("RotationComplete").
-				Start ();
-		} else {
-			//print ("I wont rotate");
-		}
-	}
-
-	void AutoPilotCheck ()
-	{
-
-		// CHECK IF REALIGNMENT IS NESCESSARY
-		if (AngleToAutoPilotTarget != angle && !rotating) {
-			//print ("realigning");
-			SetAutoPilot (autoPilotTarget);
-		}
-
-
-
-		if (autoPilotTarget != null) {
-
-			if (distanceToTarget < 8) {
-				autoPilotActivated = false;
-			}
-		}
-	}
-
-	void ManualPilot ()
-	{
-
-	}
-
-	void RotationComplete ()
-	{
-		//print ("Im done rotating: " + Angle);
-		rotating = false;
-
-	}
+    }
 }
